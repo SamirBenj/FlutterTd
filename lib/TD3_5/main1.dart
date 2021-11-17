@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:td1/TD3_5/functions.dart';
+import 'package:td1/TD3_5/users.dart';
 
 class SQLHomepage extends StatefulWidget {
   const SQLHomepage({Key? key}) : super(key: key);
@@ -9,9 +10,21 @@ class SQLHomepage extends StatefulWidget {
 }
 
 class _SQLHomepageState extends State<SQLHomepage> {
+  var myUser = User(id: 11, Nom: 'Samir', Prenom: 'Benj', age: 20);
+  late DatabaseFunctions handler;
+
   @override
   void initState() {
-    // DatabaseFunctions().initializeDB();
+    super.initState();
+    handler = DatabaseFunctions();
+    // DatabaseFunctions().initializeDB().whenComplete(()async {
+    handler.initializeDB().whenComplete(() async {
+      await addUser();
+      setState(() {});
+      print('dit it');
+    });
+
+    // });
   }
 
   Widget build(BuildContext context) {
@@ -36,6 +49,20 @@ class _SQLHomepageState extends State<SQLHomepage> {
                           fontWeight: FontWeight.w300,
                         ),
                       ),
+                      ElevatedButton(
+                        onPressed: () {
+                          // DatabaseFunctions()
+                          //     .insertUser(myUser)
+                          //     .whenComplete(() {
+                          //   print(myUser.toString());
+                          //   setState(() {});
+                          // });
+                          DatabaseFunctions().retrieveUsers().whenComplete(() {
+                            print('worked');
+                          });
+                        },
+                        child: const Text('Retrieve User'),
+                      )
                     ],
                   ),
                 ],
@@ -44,4 +71,11 @@ class _SQLHomepageState extends State<SQLHomepage> {
       ),
     );
   }
+}
+
+Future<int> addUser() async {
+  User user1 = User(Nom: "sam", Prenom: "ben", age: 20);
+  User user2 = User(Nom: "sami", Prenom: "benji", age: 30);
+  List<User> listOfUsers = [user1, user2];
+  return await DatabaseFunctions().insertUser(listOfUsers);
 }
