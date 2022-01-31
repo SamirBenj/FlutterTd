@@ -5,6 +5,8 @@ import 'package:td1/TD2_4/page1.dart';
 import 'package:td1/TD3_5/main1.dart';
 import 'package:td1/TD3_6/main2.dart';
 import 'package:td1/TD4_6/main4.dart';
+import 'package:td1/TD4_7/dataapi.dart';
+import 'package:td1/TD4_7/webservice.dart';
 import 'package:td1/td2.dart';
 import 'package:td1/testGrid.dart';
 import 'package:td1/testSqlite/main.dart';
@@ -30,7 +32,9 @@ class MyApp extends StatelessWidget {
       // home: const ListViewTest());
       // home: const Ecran1());
       // home: const SQLHomepage(),
-      home: const SqlLiteTest(),
+      // home: const SqlLiteTest(),
+      // home: ApiTestMain(),
+      home: Page1ApiData(),
     );
   }
 }

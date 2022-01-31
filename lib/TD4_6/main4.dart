@@ -7,19 +7,19 @@ class GridViewTest extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Voiture> voit = [
-      Voiture("modele", "Nom de la voiture",
+      Voiture("modele", "Twingo",
           "https://images.ladepeche.fr/api/v1/images/view/5c53fe478fe56f44823d8b27/large/image.jpg"),
-      Voiture("modele", "Nom de la voiture",
+      Voiture("renault", "C5",
           "https://images.ladepeche.fr/api/v1/images/view/5c53fe478fe56f44823d8b27/large/image.jpg"),
-      Voiture("modele", "Nom de la voiture",
+      Voiture("modele", "Focus",
           "https://images.ladepeche.fr/api/v1/images/view/5c53fe478fe56f44823d8b27/large/image.jpg"),
-      Voiture("modele", "Nom de la voiture",
+      Voiture("Porshe", "Carrera",
           "https://images.ladepeche.fr/api/v1/images/view/5c53fe478fe56f44823d8b27/large/image.jpg"),
-      Voiture("modele", "Nom de la voiture",
+      Voiture("ferrari", "F340",
           "https://images.ladepeche.fr/api/v1/images/view/5c53fe478fe56f44823d8b27/large/image.jpg"),
-      Voiture("modele", "Nom de la voiture",
+      Voiture("renault", "Twingo",
           "https://images.ladepeche.fr/api/v1/images/view/5c53fe478fe56f44823d8b27/large/image.jpg"),
-      Voiture("modele", "Nom de la voiture",
+      Voiture("renault", "Twingo",
           "https://images.ladepeche.fr/api/v1/images/view/5c53fe478fe56f44823d8b27/large/image.jpg"),
     ];
     return Scaffold(
@@ -40,7 +40,7 @@ class GridViewTest extends StatelessWidget {
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.all(
                   Radius.circular(
-                    20,
+                    10,
                   ),
                 ),
                 color: Colors.grey,
@@ -64,6 +64,7 @@ class GridViewTest extends StatelessWidget {
                     voit[index].nom,
                     style: const TextStyle(
                       color: Colors.white,
+                      fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
